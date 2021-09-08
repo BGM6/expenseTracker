@@ -1,4 +1,4 @@
-import './ExpenseDate.css';
+import './expenseDate.css';
 import React from 'react';
 
 const ExpenseDate = ({date}) => {
