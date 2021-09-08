@@ -12,33 +12,33 @@ const Expense = ({items}) => {
 		setSelectedYear(year);
 	};
 
-	console.log(selectedYear)
+	// const renderExpenses = items.map(({title, amount, date}) => {
+	// 	return (
+	// 		<div key={title}>
+	// 			<ExpenseItem
+	// 				title={title}
+	// 				amount={amount}
+	// 				date={date}
+	// 			/>
+	// 		</div>
+	// 	);
+	// });
+
 	return (
 		<div>
 			<Card className="expenses">
 				<ExpenseFilter
 					selected={selectedYear}
-					getYear={selectedYearHandler}/>
-				<ExpenseItem
-					title={items[0].title}
-					amount={items[0].amount}
-					date={items[0].date}
+					getYear={selectedYearHandler}
 				/>
-				<ExpenseItem
-					title={items[1].title}
-					amount={items[1].amount}
-					date={items[1].date}
-				/>
-				<ExpenseItem
-					title={items[2].title}
-					amount={items[2].amount}
-					date={items[2].date}
-				/>
-				<ExpenseItem
-					title={items[3].title}
-					amount={items[3].amount}
-					date={items[3].date}
-				/>
+				{items.map(expense => <
+					div key={expense.title}>
+					<ExpenseItem
+						title={expense.title}
+						amount={expense.amount}
+						date={expense.date}/>
+				</div>)
+				}
 			</Card>
 		</div>
 	);
